@@ -1,0 +1,36 @@
+﻿@page
+@model AssessmentNet.Pages.Owners.IndexModel
+@{
+}
+
+<br>
+<h2>List of Owners</h2>
+<a class='btn btn-primary btn-sm' href='/Owners/Create'>New Owner</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Driver License</th>
+            <th>Created At</th>
+            <th>Action</th>
+        </tr>
+    </thead
+    <tbody>
+        @foreach(var item in Model.listOwners)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.firstName</td>
+                <td>@item.lastName</td>
+                <td>@item.driverLicense</td>
+                <td>@item.created_at</td>
+                <td>
+                    <a class='btn btn-primary btn-sm' href='/Owners/Edit?id=@item.id'>Edit</a>
+                    <a class='btn btn-danger btn-sm' href='/Owners/Delete?id=@item.id'>Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
